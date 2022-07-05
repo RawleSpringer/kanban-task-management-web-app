@@ -5,7 +5,14 @@ module.exports = {
     './components/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
-    extend: {},
+    extend: {
+      spacing: {
+        480: '30rem',
+        523: '32.688rem',
+        675: '42.188rem',
+        416: '26rem',
+      },
+    },
     colors: {
       black: '#000112',
       white: '#FFFFFF',
