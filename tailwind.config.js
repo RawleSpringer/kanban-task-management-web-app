@@ -11,6 +11,7 @@ module.exports = {
         523: '32.688rem',
         675: '42.188rem',
         416: '26rem',
+        276: '17.25rem',
       },
     },
     colors: {

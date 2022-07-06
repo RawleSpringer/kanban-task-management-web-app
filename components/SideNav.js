@@ -1,28 +1,52 @@
-const SideNav = ({ boardNames, onShowSideNav }) => {
+const SideNav = ({
+  boardNames,
+  onShowSideNav,
+  onAddBoard,
+  onEditBoard,
+  onSelectBoard,
+  selectedBoard,
+}) => {
   const handleClick = () => {
-    console.log('clicked');
     onShowSideNav();
   };
 
+  const handleNewBoard = () => {
+    onAddBoard();
+  };
+
+  const handleEditBoard = (e) => {
+    onEditBoard(e.target.innerHTML);
+  };
+
+  const handleSelectBoard = (e) => {
+    onSelectBoard(e.target.innerHTML);
+  };
+
   return (
-    <aside className="bg-white flex-none w-60 h-full pl-6 pt-8">
+    <aside className="bg-white flex-none w-1/4 h-full pt-8">
       <ul className="flex flex-col justify-between">
         <li>
-          <p className="mb-8">ALL BOARDS (3)</p>
+          <p className="mb-8 ml-6">ALL BOARDS (3)</p>
           <nav className="w-full">
             <ul>
               {boardNames.map((boardName) => {
                 return (
                   <li
-                    className="flex mb-6 items-center cursor-pointer"
+                    className={` w-276 h-12 flex mb-6 items-center cursor-pointer ${
+                      selectedBoard === boardName
+                        ? 'bg-main-purple text-white rounded-r-full'
+                        : ''
+                    }`}
                     key={boardName}
+                    onClick={handleSelectBoard}
+                    onDoubleClick={handleEditBoard}
                   >
                     <img
                       src="/assets/icon-board.svg"
                       alt=""
-                      className="h-4 w-4 mr-4"
+                      className="h-4 w-4 mr-4 ml-6 "
                     />
-                    <p>{boardName}</p>
+                    <p className="">{boardName}</p>
                   </li>
                 );
               })}
@@ -30,9 +54,12 @@ const SideNav = ({ boardNames, onShowSideNav }) => {
                 <img
                   src="/assets/icon-board.svg"
                   alt=""
-                  className="h-4 w-4 mr-4 fill-main-purple"
+                  className="h-4 w-4 mr-4 ml-6  fill-main-purple"
                 />
-                <p className=" text-main-purple cursor-pointer">
+                <p
+                  className=" text-main-purple cursor-pointer"
+                  onClick={handleNewBoard}
+                >
                   +Create New Board
                 </p>
               </li>
@@ -40,7 +67,7 @@ const SideNav = ({ boardNames, onShowSideNav }) => {
           </nav>
         </li>
         <li>
-          <p className="h-12 bg-light-grey flex justify-center items-center">
+          <p className="h-12 ml-6 bg-light-grey flex justify-center items-center">
             <img
               src="/assets/icon-light-theme.svg"
               alt=""
@@ -53,7 +80,7 @@ const SideNav = ({ boardNames, onShowSideNav }) => {
               className="h-4 w-4 mr-4"
             />
           </p>
-          <p className="flex items-center">
+          <p className="flex items-center ml-6">
             <img
               src="/assets/icon-hide-sidebar.svg"
               alt=""

@@ -9,13 +9,18 @@ import BoardContainer from '../components/BoardContainer';
 import Header from '../components//Header';
 import SideNav from '../components/SideNav';
 import NewTask from '../components/NewTask';
+import NewBoard from '../components/NewBoard';
+import EditBoard from '../components/EditBoard';
 
 export default function Home(props) {
   const [boards, setBoards] = useState(props.boards);
   const [showSideNav, setShowSideNav] = useState(true);
   const [showTaskDetail, setShowTaskDetail] = useState(false);
   const [showAddNewTask, setShowAddNewTask] = useState(false);
+  const [showAddNewBoard, setShowAddNewBoard] = useState(false);
+  const [showEditBoard, setShowEditBoard] = useState(false);
   const [selectedTask, setSelectedTask] = useState({});
+  const [selectedBoard, setSelectedBoard] = useState(boards[0].name);
   const boardNames = boards.map((board) => board.name);
 
   const toggleSideNav = () => {
@@ -25,6 +30,19 @@ export default function Home(props) {
   const toggleTaskDetail = () => setShowTaskDetail(!showTaskDetail);
 
   const toggleAddNewTask = () => setShowAddNewTask(!showAddNewTask);
+
+  const toggleAddNewBoard = () => setShowAddNewBoard(!showAddNewBoard);
+
+  const toggleEditBoard = () => setShowEditBoard(!showEditBoard);
+
+  const editBoardHandler = (boardName) => {
+    toggleEditBoard();
+    setSelectedBoard(boardName);
+  };
+
+  const selectBoardHandler = (boardName) => {
+    setSelectedBoard(boardName);
+  };
 
   return (
     <div>
@@ -39,6 +57,10 @@ export default function Home(props) {
         {showTaskDetail && <TaskDetail selectedTask={selectedTask} />}
         {showAddNewTask && <Overlay onShowOverlay={toggleAddNewTask} />}
         {showAddNewTask && <NewTask />}
+        {showAddNewBoard && <Overlay onShowOverlay={toggleAddNewBoard} />}
+        {showAddNewBoard && <NewBoard />}
+        {showEditBoard && <Overlay onShowOverlay={toggleEditBoard} />}
+        {showEditBoard && <EditBoard board={boards[0]} />}
         <Header
           boardName={boards[0].name}
           onShowOverlay={toggleSideNav}
@@ -46,7 +68,14 @@ export default function Home(props) {
         />
         <section className="flex flex-row h-full">
           {showSideNav && (
-            <SideNav boardNames={boardNames} onShowSideNav={toggleSideNav} />
+            <SideNav
+              boardNames={boardNames}
+              onShowSideNav={toggleSideNav}
+              onAddBoard={toggleAddNewBoard}
+              onEditBoard={editBoardHandler}
+              onSelectBoard={selectBoardHandler}
+              selectedBoard={selectedBoard}
+            />
           )}
 
           <BoardContainer
