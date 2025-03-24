@@ -12,3 +12,122 @@
   --text-dark-grey: #2b2c37;
   --text-white: #ffffff;
 }
+
+/* TYPOGRAPHY */
+
+:root {
+  --heading-xl: 2.4rem;
+  --heading-large: 1.8rem;
+  --heading-medium: 1.5rem;
+  --heading-small: 1.2rem;
+  --body-medium: 1.3rem;
+  --body-large: 1.2rem;
+}
+
+body {
+  /* min-height: 100dvh; */
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: var(--body-large);
+}
+
+.container {
+  display: flex;
+  height: 100%;
+}
+
+.side-bar {
+  min-width: 300px;
+  padding-top: 32px;
+  padding-bottom: 48px;
+  padding-left: 32px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.side-bar-logo {
+  margin-bottom: 5.4rem;
+}
+
+.side-bar-header {
+  font-size: var(--body-medium);
+  color: var(--text-medium-grey);
+}
+
+.side-bar-inner-container {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.side-bar-navigation-list {
+  margin-top: 3.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.side-bar-navigation-list-item {
+  display: flex;
+  gap: 16px;
+  color: var(--text-medium-grey);
+  font-size: var(--heading-medium);
+}
+
+.mode-container {
+  margin-bottom: 2.2rem;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  border: none;
+  background-color: var(--background-light);
+  padding-top: 14px;
+  padding-bottom: 14px;
+  max-width: 250px;
+  border-radius: 10px;
+}
+
+.side-bar-toggle {
+  border: none;
+  background-color: white;
+  display: flex;
+  gap: 15px;
+  color: var(--text-medium-grey);
+  font-size: var(--heading-medium);
+}
+
+/* Taskboard */
+
+.task-board {
+  flex-grow: 1;
+  background-color: var(--background-light);
+  min-height: 100%;
+}
+
+.task-board-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 24px 20px 24px;
+  background-color: var(--text-white);
+}
+
+.task-board-header-title {
+  font-size: 2.4rem;
+  font-weight: bold;
+}
+
+.task-board-header-actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.add-task-button {
+  padding: 14px 24px;
+  border: none;
+  border-radius: 24px;
+  background-color: var(--primary-light);
+  color: var(--text-white);
+}

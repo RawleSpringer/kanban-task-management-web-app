@@ -1,14 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
-  
-  <title>Frontend Mentor | Kanban task management web app</title>
-</head>
-<body>
-
-</body>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/favicon-32x32.png"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/code//css/reset.css" />
+    <link rel="stylesheet" href="/code//css/styles.css" />
+    <title>Frontend Mentor | Kanban task management web app</title>
+  </head>
+  <body>
+    <div class="container">
+      <aside class="side-bar">
+        <h2 class="logo">
+          <img src="/code/assets/logo-dark.svg" />
+        </h2>
+        <h3 class="side-bar-header">ALL BOARDS (3)</h3>
+        <div class="side-bar-inner-container">
+          <nav class="side-bar-navigation">
+            <ul class="side-bar-navigation-list">
+              <li class="side-bar-navigation-list-item">
+                <img src="/code/assets/icon-board.svg" alt="" />
+                <p>Platform Launch</p>
+              </li>
+              <li class="side-bar-navigation-list-item">
+                <img src="/code/assets/icon-board.svg" alt="" />
+                <p>Marketing Plan</p>
+              </li>
+              <li class="side-bar-navigation-list-item">
+                <img src="/code/assets/icon-board.svg" alt="" />
+                <p>Roadmap</p>
+              </li>
+              <li class="side-bar-navigation-list-item">
+                <img src="/code/assets/icon-board.svg" alt="" />
+                <span>+Create New Board</span>
+              </li>
+            </ul>
+          </nav>
+          <div class="side-bar-actions">
+            <fieldset class="mode-container">
+              <span
+                ><img src="/code/assets/icon-light-theme.svg" alt=""
+              /></span>
+              <input type="checkbox" />
+              <span><img src="/code/assets/icon-dark-theme.svg" /></span>
+            </fieldset>
+            <button class="side-bar-toggle">
+              <span
+                ><img src="/code/assets/icon-hide-sidebar.svg" alt=""
+              /></span>
+              <p>Hide Sidebar</p>
+            </button>
+          </div>
+        </div>
+      </aside>
+      <main class="task-board">
+        <header class="task-board-header">
+          <h1 class="task-board-header-title">Platform Launch</h1>
+          <nav class="task-board-header-actions">
+            <button class="add-task-button">
+              <img src="/code/assets/icon-add-task-mobile.svg" />
+              Add New Task
+            </button>
+            <span>
+              <img src="/code/assets/icon-vertical-ellipsis.svg" alt="" />
+            </span>
+          </nav>
+        </header>
+        <section>
+          <p>This board is empty. Create a new column to get started.</p>
+          <button>
+            <img src="/code/assets/icon-add-task-mobile.svg" />
+            Add New Column
+          </button>
+        </section>
+      </main>
+    </div>
+  </body>
 </html>
