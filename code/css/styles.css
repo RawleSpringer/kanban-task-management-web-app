@@ -99,10 +99,12 @@ body {
 
 /* Taskboard */
 
-.task-board {
+.task-board-container {
   flex-grow: 1;
   background-color: var(--background-light);
   min-height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .task-board-header {
@@ -124,10 +126,96 @@ body {
   align-items: center;
 }
 
+.task-board-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.task-board-content p {
+  font-size: var(--heading-large);
+  color: var(--text-medium-grey);
+  margin-bottom: 32px;
+}
+
+/* reusable add button */
+
 .add-task-button {
-  padding: 14px 24px;
   border: none;
   border-radius: 24px;
-  background-color: var(--primary-light);
   color: var(--text-white);
+  font-size: var(--body-medium);
+}
+
+.add-task-button-nav {
+  padding: 14px 24px;
+  background-color: var(--primary-light);
+  width: 164px;
+}
+
+.add-task-button-content {
+  padding: 15px 18px;
+  background-color: var(--primary);
+  width: 174px;
+}
+
+/* Modals */
+
+.dialog {
+  width: 480px;
+  padding: 32px;
+  min-height: 4.8rem;
+  inset: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.dialog::backdrop {
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+}
+
+.dialog-heading {
+  font-size: var(--heading-large);
+}
+
+.dialog-form {
+  margin-top: 2rem;
+}
+
+.dialog input {
+  height: 4rem;
+  margin-top: 0.8rem;
+}
+
+.dialog-form > p {
+  display: flex;
+  flex-direction: column;
+}
+
+.dialog fieldset {
+  margin-top: 2.4rem;
+  border: 0;
+}
+
+.dialog fieldset > p {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.dialog fieldset > p input {
+  flex-grow: 1;
+}
+
+.dialog-buttons {
+  display: flex;
+  flex-direction: column;
+  margin-top: 0.8rem;
+  gap: 24px;
+}
+
+.dialog-buttons button {
+  width: 100%;
 }

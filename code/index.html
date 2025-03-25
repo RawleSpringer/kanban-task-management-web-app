@@ -23,7 +23,7 @@
   <body>
     <div class="container">
       <aside class="side-bar">
-        <h2 class="logo">
+        <h2 class="side-bar-logo">
           <img src="/code/assets/logo-dark.svg" />
         </h2>
         <h3 class="side-bar-header">ALL BOARDS (3)</h3>
@@ -65,11 +65,48 @@
           </div>
         </div>
       </aside>
-      <main class="task-board">
+      <main class="task-board-container">
+        <dialog id="editBoardDialog" class="dialog">
+          <h3 class="dialog-heading">Edit Board</h3>
+          <form id="" action="" method="dialog" class="dialog-form">
+            <p class="dialog-field">
+              <label for="boardname">Board Name</label>
+              <input type="text" id="boardname" name="" />
+            </p>
+            <fieldset>
+              <legend>
+                <p>Board Columns</p>
+              </legend>
+              <p>
+                <input type="text" name="" />
+                <span>
+                  <img src="/code/assets/icon-cross.svg" alt="" />
+                </span>
+              </p>
+            </fieldset>
+            <div class="dialog-buttons">
+              <button
+                id="addNewBoardEditBoardModalButton"
+                class="add-task-button add-task-button-content"
+                type="button"
+              >
+                <img src="/code/assets/icon-add-task-mobile.svg" />
+                Add New Column
+              </button>
+              <button
+                id="saveEditBoardModalButton"
+                class="add-task-button add-task-button-content"
+              >
+                <img src="/code/assets/icon-add-task-mobile.svg" />
+                Save Changes
+              </button>
+            </div>
+          </form>
+        </dialog>
         <header class="task-board-header">
           <h1 class="task-board-header-title">Platform Launch</h1>
           <nav class="task-board-header-actions">
-            <button class="add-task-button">
+            <button class="add-task-button add-task-button-nav">
               <img src="/code/assets/icon-add-task-mobile.svg" />
               Add New Task
             </button>
@@ -78,14 +115,18 @@
             </span>
           </nav>
         </header>
-        <section>
+        <section class="task-board-content">
           <p>This board is empty. Create a new column to get started.</p>
-          <button>
+          <button
+            id="addNewColumnButton"
+            class="add-task-button add-task-button-content"
+          >
             <img src="/code/assets/icon-add-task-mobile.svg" />
             Add New Column
           </button>
         </section>
       </main>
     </div>
+    <script src="/code/js/app.js"></script>
   </body>
 </html>
